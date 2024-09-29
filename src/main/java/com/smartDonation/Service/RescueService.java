@@ -1,17 +1,17 @@
 package com.smartDonation.Service;
 
 import com.smartDonation.Entity.Rescue;
-import com.smartDonation.Repository.RescueRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-@Service
-public class RescueService {
+import java.io.IOException;
+import java.util.List;
 
-    @Autowired
-    private RescueRepository rescueRepository;
+public interface RescueService {
 
-    public Rescue addRescue(Rescue rescue) {
-        return rescueRepository.save(rescue);
-    }
+    Rescue saveRescue(Rescue rescue, MultipartFile file) throws IOException;
+
+    Rescue getRescueById(Long id);
+
+    List<Rescue> getAllRescues();
 }
+

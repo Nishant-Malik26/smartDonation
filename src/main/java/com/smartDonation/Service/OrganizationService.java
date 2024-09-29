@@ -1,18 +1,17 @@
 package com.smartDonation.Service;
 
 import com.smartDonation.Entity.Organization;
-import com.smartDonation.Repository.OrganizationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-@Service
-public class OrganizationService {
+import java.io.IOException;
+import java.util.List;
 
+public interface OrganizationService {
 
-    @Autowired
-    private OrganizationRepository organizationRepository;
+    Organization saveOrganization(Organization organization, MultipartFile file) throws IOException;
 
-    public Organization addOrganization(Organization organization) {
-        return organizationRepository.save(organization);
-    }
+    Organization getOrganizationById(Long id);
+
+    List<Organization> getAllOrganizations();
 }
+
